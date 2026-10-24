@@ -1,7 +1,10 @@
 import dearpygui.dearpygui as dpg
 import os
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from src.application import Application
 
-def edit_sidebar(app):
+def edit_sidebar(app:'Application'):
     dpg.add_text("项目资源", color=(200, 200, 200))
     dpg.add_separator()
     with dpg.child_window(width=-1, height=-1, border=False, tag="project_tree_container"):
@@ -29,4 +32,4 @@ def edit_sidebar(app):
         root_name = os.path.basename(os.path.normpath(dir_path))
         with dpg.tree_node(label=root_name, default_open=True, parent="project_tree_container"):
             build_tree(dir_path, dpg.last_item())
-    app.load_project = load_project
+    load_project(app.peoject_dir)

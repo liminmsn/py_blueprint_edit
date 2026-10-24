@@ -8,7 +8,7 @@ from src.page import edit, home
 
 class Application:
     @staticmethod
-    def router(app:"Application", path_type: 'PageType'):
+    def router(app:'Application', path_type: 'PageType'):
         dpg.delete_item(app.current_page.name)
         app.current_page = path_type
 
@@ -23,6 +23,7 @@ class Application:
         pass
     def __init__(self):
         self.title = "Typescript Blueprint Edit"
+        self.peoject_dir = None
         self.window_width = 700
         self.window_height = 500
         self.min_window_width = 700

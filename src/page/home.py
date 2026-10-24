@@ -35,11 +35,13 @@ def home(app: 'Application', tag):
             folder_path = filedialog.askdirectory()
             root.destroy()
             if folder_path:
-                load_fn = getattr(app, "load_project", None)
-                if callable(load_fn):
-                    load_fn(folder_path)
-                else:
-                    print(f"[warn] Application 没有 load_project 方法")
+                app.peoject_dir = folder_path
+                app.router(app,PageType.Edit)
+                # load_fn = getattr(app, "load_project", None)
+                # if callable(load_fn):
+                #     load_fn(folder_path)
+                # else:
+                #     print(f"[warn] Application 没有 load_project 方法")
 
         elif label == "帮助":
             app.router(app=app, path_type=PageType.Edit)
