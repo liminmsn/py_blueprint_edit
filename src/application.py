@@ -24,7 +24,7 @@ class Application:
     def __init__(self):
         self.title = "Typescript Blueprint Edit"
         self.window_width = 700
-        self.window_height = 600
+        self.window_height = 500
         self.min_window_width = 700
         self.min_window_height = 500
 
