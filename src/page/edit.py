@@ -8,10 +8,10 @@ def edit(app:"Application",tag:str):
     with dpg.window(tag=tag):
         edit_topbar(app)
         with dpg.group(horizontal=True):
-            with dpg.child_window(width=250, height=-1):
+            with dpg.child_window(width=250, height=-1,resizable_x=True):
                 edit_sidebar(app)
             with dpg.child_window(width=-1, height=-1, border=False):
-                with dpg.child_window(width=-1, height=-220, border=False):
+                with dpg.child_window(width=-1, height=-220, border=False,resizable_y=True,):
                     edit_blueprint(app)
                 with dpg.child_window(width=-1, height=-1):
                     edit_log(app)
