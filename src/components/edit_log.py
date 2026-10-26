@@ -15,6 +15,4 @@ def edit_log(app,edit):
         dpg.add_button(label="清空", callback=clear_log_callback)   
     dpg.add_separator()
     with dpg.child_window(width=-1, height=250, border=False, tag="log_container"):
-        # for i in range(100):
-        #     dpg.add_text(f"控制台日志输出 {i+1}...", color=(0, 255, 0))
         dpg.set_y_scroll("log_container", -1.0)
