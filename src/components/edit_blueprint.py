@@ -1,6 +1,14 @@
 import dearpygui.dearpygui as dpg
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from src.application import Application
 
-def edit_blueprint(app):
+def edit_blueprint(app:'Application',edit):
+    def loadFile(path:str):
+        edit.add_log("文件地址"+path, color=(0, 255, 0))
+        pass
+    edit.loadFile = loadFile
+    
     def link_callback():
         pass
     def delink_callback():
