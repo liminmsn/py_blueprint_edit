@@ -7,29 +7,15 @@ from .util import root_dir
 from src.page import edit, home
 
 class Application:
-    @staticmethod
-    def router(app:'Application', path_type: 'PageType'):
-        dpg.delete_item(app.current_page.name)
-        app.current_page = path_type
-
-        tag = path_type.name
-        if path_type == PageType.Edit:
-            edit(app, tag)
-        elif path_type == PageType.Home:
-            home(app, tag)
-
-        on_viewport_resize()
-        dpg.set_primary_window(tag, True)
-        pass
     def __init__(self):
         self.title = "Typescript Blueprint Edit"
-        self.peoject_dir = None
         self.window_width = 700
         self.window_height = 500
         self.min_window_width = 700
         self.min_window_height = 500
 
         self.current_page = PageType.Home
+        self.peoject_dir = None
         try:
             ctypes.windll.shcore.SetProcessDpiAwareness(2)
         except AttributeError:
@@ -70,3 +56,18 @@ class Application:
         dpg.show_viewport()
         dpg.start_dearpygui()
         dpg.destroy_context()
+        pass
+    @staticmethod
+    def router(app:'Application', path_type: 'PageType'):
+        dpg.delete_item(app.current_page.name)
+        app.current_page = path_type
+
+        tag = path_type.name
+        if path_type == PageType.Edit:
+            edit(app, tag)
+        elif path_type == PageType.Home:
+            home(app, tag)
+
+        on_viewport_resize()
+        dpg.set_primary_window(tag, True)
+        pass

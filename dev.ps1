@@ -1,1 +1,1 @@
-py.exe .\main.py
+python .\main.py

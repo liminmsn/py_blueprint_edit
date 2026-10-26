@@ -3,10 +3,14 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from src.application import Application
 
+data = {
+    "select_path":""
+}
 def edit_blueprint(app:'Application',edit):
     def loadFile(path:str):
-        edit.add_log("文件地址"+path, color=(0, 255, 0))
-        pass
+        if data["select_path"] != path:
+            data["select_path"] = path
+            edit.add_log("文件地址"+path, color=(0, 255, 0))
     edit.loadFile = loadFile
     
     def link_callback():
